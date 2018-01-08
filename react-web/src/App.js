@@ -41,17 +41,21 @@ export class App extends Component {
       <Router>
         <div className="App">
           <nav>
+
           <span><Link to='/about'>About</Link></span>
           <span><Link to='/'>Home</Link></span>
+          <span><Link to='/movies/new'>New movie</Link></span>
         </nav>
         <Route path='/about' component={AboutPage}/>
+        <Route path='/movies/new' render={
+          () => (
+            <MovieForm onSubmit={this.handleMovieSubmission} />
+          )
+        }/>
         <Route exact path='/' render={
           () => (
             <div>
-              <MovieForm onSubmit={this.handleMovieSubmission} />
-              <hr/>
               {
-
                 movies ? (
                   <MoviesList movies={ movies } />
                 ) : (
