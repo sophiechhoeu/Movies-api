@@ -22,7 +22,7 @@ render() {
     const {redirect} = this.state
     return (
       <div>
-      {redirect && <Redirect to='/'/>}
+      {redirect && <Redirect to='/movies'/>}
       <form onSubmit={this.handleFormSubmission}>
         <label>
           Title
