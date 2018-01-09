@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import MoviesList from './components/MovieList'
+import MoviesPage from './pages/MoviesPage';
 import MovieForm from './components/MovieForm'
 import AboutPage from './pages/AboutPage'
 import * as moviesAPI from './api/movies'
@@ -41,30 +41,23 @@ export class App extends Component {
       <Router>
         <div className="App">
           <nav>
-
           <span><Link to='/about'>About</Link></span>
-          <span><Link to='/'>Home</Link></span>
+          <span><Link to='/movies'>Home</Link></span>
           <span><Link to='/movies/new'>New movie</Link></span>
         </nav>
+
+        <Switch>
         <Route path='/about' component={AboutPage}/>
         <Route path='/movies/new' render={
           () => (
             <MovieForm onSubmit={this.handleMovieSubmission} />
           )
         }/>
-        <Route exact path='/' render={
+        <Route path='/movies' render={
           () => (
-            <div>
-              {
-                movies ? (
-                  <MoviesList movies={ movies } />
-                ) : (
-                  "Loading..."
-                )
-              }
-            </div>
-          )
-        }/>
+            <MoviesPage movies={movies}/>
+          )}/>
+          </Switch>
       </div>
     </Router>
     );
