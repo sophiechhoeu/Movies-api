@@ -1,5 +1,5 @@
 import React from 'react'
-import MoviesList from '../components/MovieList'
+import MovieList from '../components/MovieList'
 import {Route, Switch} from 'react-router-dom'
 import Movie from '../components/Movie'
 
@@ -20,7 +20,7 @@ return (
       <Route path='/movies' render={
         () => (
           <div>
-                <MoviesList movies={ movies } />
+              <MovieList movies={ movies } />
           </div>
         )
       }/>
